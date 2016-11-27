@@ -9,7 +9,7 @@ function downloadImage(){
   var link = document.createElement('a');
   link.download = 'Download.jpg';
   link.href = document.getElementById("sketch").toDataURL();
-  // document.body.appendChild(link);
+  document.body.appendChild(link);
   link.click();
 
 }
