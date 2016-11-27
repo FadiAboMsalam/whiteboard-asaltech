@@ -58,16 +58,16 @@ function eraser() {
   context.strokeStyle = 'rgba(0,0,0,1)';
 }
 
-// // Clears the canvas and the lines-array:
-// function clear(send) {
-//   context.clearRect(0, 0, canvas.width, canvas.height);
-//   lines = [];
-//   if (send && TogetherJS.running) {
-//     TogetherJS.send({
-//       type: 'clear'
-//     });
-//   }
-// }
+// Clears the canvas and the lines-array:
+function clear(send) {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  lines = [];
+  if (send && TogetherJS.running) {
+    TogetherJS.send({
+      type: 'clear'
+    });
+  }
+}
 
 // Redraws the lines from the lines-array:
 function reDraw(lines){
@@ -135,13 +135,13 @@ TogetherJS.hub.on('draw', function (msg) {
 });
 
 
-// // Clears the canvas whenever someone presses the clear-button
-// TogetherJS.hub.on('clear', function (msg) {
-//   if (!msg.sameUrl) {
-//     return;
-//   }
-//   clear(false);
-// });
+// Clears the canvas whenever someone presses the clear-button
+TogetherJS.hub.on('clear', function (msg) {
+  if (!msg.sameUrl) {
+    return;
+  }
+  clear(false);
+});
 
 // Hello is sent from every newly connected user, this way they will receive what has already been drawn:
 TogetherJS.hub.on('togetherjs.hello', function () {
@@ -199,10 +199,10 @@ $(document).ready(function () {
     }
   });
 
-  // // Clears the canvas:
-  // $('.clear').click(function () {
-  //   clear(true);
-  // });
+  // Clears the canvas:
+  $('.clear').click(function () {
+    clear(true);
+  });
 
   // Color-button functions:
   $('.color-picker').click(function () {
