@@ -1,5 +1,5 @@
 // initiate togther sidebar
-$("#togetherBtn").click(TogetherJS);
+// $("#togetherBtn").click(TogetherJS);
 
 // upload file functionality
 $('#uploadFile').on('change',function(){
